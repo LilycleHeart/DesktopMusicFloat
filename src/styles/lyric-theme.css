@@ -1,0 +1,2 @@
+#bar-root.lyric-bar{background:var(--obs-surface);color:var(--obs-ink);border-radius:var(--obs-lyric-radius,16px);border:0;box-shadow:none}
+#bar-root .rnp-lyrics{--rnp-accent-color-shade-2:var(--obs-primary);--rnp-accent-color:var(--obs-primary);color:var(--obs-primary)}

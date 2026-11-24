@@ -1,0 +1,18 @@
+{
+  "$schema": "https://raw.githubusercontent.com/BetterNCM/BetterNCM-Plugins/refs/heads/master/manifest-schema.json",
+  "manifest_version": 1,
+  "name": "网易云桌面音乐悬浮窗",
+  "slug": "DesktopMusicFloat",
+  "version": "0.1.10",
+  "author": "DesktopMusicFloat",
+  "fork_of": "OBSPlaybackSuite",
+  "description": "在 Windows 桌面显示歌曲和逐字歌词，悬停波形可控制播放、音量、贴边隐藏、置顶和点击穿透。",
+  "type": "extension",
+  "require_restart": true,
+  "requirements": ["RefinedNowPlaying"],
+  "loadAfter": ["RefinedNowPlaying", "MaterialYouTheme"],
+  "ncm-version-req": ">=2.10.0 <3.0.0",
+  "ncm3-compatible": false,
+  "betterncm_version": ">=1.0.0",
+  "injects": { "Main": [{ "file": "main.js" }] }
+}

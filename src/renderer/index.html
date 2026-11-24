@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="referrer" content="no-referrer">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src https:">
+    <title>网易云桌面音乐悬浮窗</title>
+    <link rel="stylesheet" href="./desktop.css">
+    <script defer src="./react.js"></script>
+    <script defer src="./react-dom.js"></script>
+    <script defer src="./desktop.js"></script>
+</head>
+<body>
+<main id="window">
+    <div id="lyrics-slot" data-collapsed>
+        <div class="lyric-bar text-align-left" id="bar-root"><div class="lyric-bar-inner" id="bar-inner"></div></div>
+    </div>
+    <div class="player-surface">
+        <!-- nowplaying article -->
+    </div>
+</main>
+<template id="playback-controls">
+    <div id="controls">
+        <button data-play="previous" title="上一首" aria-label="上一首">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 6v12M19 6l-10 6 10 6z"/></svg>
+        </button>
+        <button id="play" data-play="toggle" title="播放" aria-label="播放">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l11 7-11 7z"/></svg>
+        </button>
+        <button data-play="next" title="下一首" aria-label="下一首">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 6v12M5 6l10 6-10 6z"/></svg>
+        </button>
+        <div id="volume-control">
+            <button id="volume-trigger" type="button" aria-label="网易云音量，滚轮调节"
+                aria-controls="volume-panel" aria-expanded="false">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9h4l5-4v14l-5-4H3zM16 9a4 4 0 0 1 0 6m3-9a8 8 0 0 1 0 12"/></svg>
+            </button>
+            <div id="volume-panel" hidden>
+                <output id="volume-percent" for="volume" aria-hidden="true">–</output>
+                <div id="volume-slider-slot">
+                    <input id="volume" type="range" min="0" max="100" value="0" aria-label="网易云音量"
+                        aria-orientation="vertical" disabled>
+                </div>
+            </div>
+        </div>
+        <span class="separator" aria-hidden="true"></span>
+        <button data-option="dock" title="吸附隐藏" aria-label="吸附隐藏" aria-pressed="false">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 5v14M5 8h8a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2H5zm5 1.5 2 2.5-2 2.5"/></svg>
+        </button>
+        <button data-option="top" title="置顶" aria-label="置顶" aria-pressed="false">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4h6m-5 0-1 7-3 3h12l-3-3-1-7m-2 10v6"/></svg>
+        </button>
+        <button data-option="through" title="点击穿透 · 可在托盘关掉" aria-label="点击穿透，可在托盘关掉" aria-pressed="false">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 4 12 10-6 1-2 5zm-3 16L20 4"/></svg>
+        </button>
+    </div>
+    <input id="seek" type="range" min="0" max="1000" value="0" aria-label="播放进度" disabled>
+</template>
+<div id="main-player" class="m-player" hidden><button class="btnp"></button></div>
+<div class="m-player m-player-fm f-dn" hidden><button class="btnp"></button></div>
+</body>
+</html>
